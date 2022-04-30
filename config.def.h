@@ -69,6 +69,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,                      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_d,                      spawn,          {.v = rofiwindowcmd } },
 	{ MODKEY,                       XK_Return,                 spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_l,                      spawn,          SHCMD("i3lock -c 6272a4 && systemctl suspend") },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
 	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
