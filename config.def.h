@@ -57,6 +57,7 @@ static const Layout layouts[] = {
 /* commands */
 static char rofimon[2] = "0"; /* component of roficmd, manipulated in spawn() */
 static const char *roficmd[] = { "rofi", "-show", NULL };
+static const char *rofiwindowcmd[] = { "rofi", "-show", "window", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -65,6 +66,7 @@ static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "togg
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
 	{ MODKEY,                       XK_p,                      spawn,          {.v = roficmd } },
+	{ MODKEY,                       XK_d,                      spawn,          {.v = rofiwindowcmd } },
 	{ MODKEY,                       XK_Return,                 spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
 	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
@@ -85,6 +87,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,                  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_w,                      quit,           {0} },
 	{ 0,                       		XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
 	{ 0,                       		XF86XK_AudioMute,          spawn,          {.v = mutevol } },
 	{ 0,                       		XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
