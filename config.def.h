@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
+#include "movestack.c"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -70,6 +71,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,                      spawn,          {.v = rofiwindowcmd } },
 	{ MODKEY,                       XK_Return,                 spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,                      movecenter,     { 0 } },
+ 	{ MODKEY|Mod1Mask,              XK_j,                      movestack,      {.i = +1 } },
+ 	{ MODKEY|Mod1Mask,              XK_k,                      movestack,      {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_j,                      aspectresize,   {.i = +24} },
  	{ MODKEY|ShiftMask,             XK_k,                      aspectresize,   {.i = -24} },
 	{ MODKEY|ShiftMask,             XK_l,                      spawn,          SHCMD("i3lock -c 6272a4 && systemctl suspend") },
